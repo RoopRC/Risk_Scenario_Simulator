@@ -67,21 +67,21 @@ const AIPanel = ({ riskId, riskTitle }) => {
           <h3 className="section-title mb-3">Recommendations</h3>
           <div className="space-y-2">
             {recommendations.recommendations?.map((rec, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-lg p-3">
+              <div key={idx} className="bg-slate-500/10 rounded-lg p-3 border border-slate-500/20">
                 <div className="flex items-start gap-2">
                   <span className="flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 text-accent text-2xs font-bold flex items-center justify-center mt-0.5">
                     {idx + 1}
                   </span>
                   <div>
-                    <p className="text-xs text-gray-700 leading-relaxed">{rec.description}</p>
-                    <span className="badge bg-gray-100 text-gray-500 mt-1.5">Priority: {rec.priority}</span>
+                    <p className="text-xs text-slate-300 leading-relaxed">{rec.description}</p>
+                    <span className="badge bg-slate-500/20 text-slate-300 mt-1.5">Priority: {rec.priority}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           {recommendations.meta && (
-            <p className="text-2xs text-gray-400 mt-3">
+            <p className="text-2xs text-slate-300 mt-3">
               Confidence: {(recommendations.meta.confidence * 100).toFixed(0)}% •
               Model: {recommendations.meta.model_used}
               {recommendations.meta.cached ? ' • Cached' : ''}
@@ -111,10 +111,10 @@ const AIPanel = ({ riskId, riskTitle }) => {
           </button>
         </div>
         {aiResponse && (
-          <div className="mt-3 p-3 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-700 leading-relaxed">{aiResponse.answer}</p>
+          <div className="mt-3 p-3 bg-slate-500/10 rounded-lg border border-slate-500/20">
+            <p className="text-xs text-slate-300 leading-relaxed">{aiResponse.answer}</p>
             {aiResponse.sources && (
-              <p className="text-2xs text-gray-400 mt-2">Sources: {aiResponse.sources.join(', ')}</p>
+              <p className="text-2xs text-slate-300 mt-2">Sources: {aiResponse.sources.join(', ')}</p>
             )}
           </div>
         )}

@@ -35,7 +35,9 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
+      console.log('🔐 Attempting login with API URL:', import.meta.env.VITE_API_URL);
       const response = await loginApi(credentials);
+      console.log('✅ Login response received:', response);
       const { token, ...userData } = response;
       localStorage.setItem('token', token);
       setToken(token);
@@ -43,7 +45,12 @@ export const AuthProvider = ({ children }) => {
       toast.success('Login successful!');
       return true;
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
+      console.error('❌ Login failed - Full error:', error);
+      console.error('Response data:', error.response?.data);
+      console.error('Status:', error.response?.status);
+      console.error('Message:', error.message);
+      const errorMessage = error.response?.data?.message || error.message || 'Login failed. Please check your credentials and try again.';
+      toast.error(errorMessage);
       return false;
     }
   };

@@ -29,7 +29,7 @@ const RiskComparison = ({ risks = [] }) => {
     return (
       <div className="card p-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-lg font-semibold text-slate-900">Risk Comparison</h3>
+          <h3 className="text-lg font-semibold text-white">Risk Comparison</h3>
           <button
             onClick={() => setShowSelector(!showSelector)}
             className="text-blue-600 hover:text-blue-700 text-sm font-medium"
@@ -40,7 +40,7 @@ const RiskComparison = ({ risks = [] }) => {
 
         {showSelector && (
           <div>
-            <p className="text-slate-600 mb-4">Select up to 4 risks to compare</p>
+            <p className="text-slate-200 mb-4">Select up to 4 risks to compare</p>
             <div className="space-y-2 max-h-60 overflow-y-auto">
               {risks.slice(0, 10).map(risk => (
                 <label key={risk.id} className="flex items-center gap-3 p-3 hover:bg-slate-50 rounded-lg cursor-pointer">
@@ -52,8 +52,8 @@ const RiskComparison = ({ risks = [] }) => {
                     className="w-4 h-4"
                   />
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-slate-900 truncate">{risk.title}</p>
-                    <p className="text-xs text-slate-500">{risk.category}</p>
+                    <p className="font-medium text-white truncate">{risk.title}</p>
+                    <p className="text-xs text-slate-200">{risk.category}</p>
                   </div>
                 </label>
               ))}
@@ -67,7 +67,7 @@ const RiskComparison = ({ risks = [] }) => {
   return (
     <div className="card p-6">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-lg font-semibold text-slate-900">Risk Comparison ({comparisonRisks.length})</h3>
+        <h3 className="text-lg font-semibold text-white">Risk Comparison ({comparisonRisks.length})</h3>
         <button
           onClick={handleClear}
           className="text-red-600 hover:text-red-700 text-sm font-medium"
@@ -80,9 +80,9 @@ const RiskComparison = ({ risks = [] }) => {
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b-2 border-slate-200">
-              <th className="text-left py-3 px-2 font-semibold text-slate-900">Attribute</th>
-              {comparisonRisks.map(risk => (
-                <th key={risk.id} className="text-center py-3 px-2 font-semibold text-slate-900 max-w-xs">
+              <th className="text-left py-3 px-2 font-semibold text-white">Attribute</th>
+              {comparisonRisks.map((risk) => (
+                <th key={risk.id} className="text-center py-3 px-2 font-semibold text-white max-w-xs">
                   <div className="truncate">{risk.title.substring(0, 20)}...</div>
                 </th>
               ))}
@@ -90,7 +90,7 @@ const RiskComparison = ({ risks = [] }) => {
           </thead>
           <tbody>
             <tr className="border-b border-slate-100 hover:bg-slate-50">
-              <td className="py-3 px-2 font-medium text-slate-900">Risk Score</td>
+              <td className="py-3 px-2 font-medium text-white">Risk Score</td>
               {comparisonRisks.map(risk => (
                 <td key={risk.id} className="text-center py-3 px-2">
                   <span className={`font-bold text-lg ${getRiskColor(risk.riskScore)}`}>
@@ -100,7 +100,7 @@ const RiskComparison = ({ risks = [] }) => {
               ))}
             </tr>
             <tr className="border-b border-slate-100 hover:bg-slate-50">
-              <td className="py-3 px-2 font-medium text-slate-900">Status</td>
+              <td className="py-3 px-2 font-medium text-white">Status</td>
               {comparisonRisks.map(risk => (
                 <td key={risk.id} className="text-center py-3 px-2">
                   <span className={`px-2 py-1 rounded-full text-xs font-medium ${

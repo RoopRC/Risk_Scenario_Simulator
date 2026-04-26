@@ -31,17 +31,17 @@ const RiskDetail = () => {
   };
 
   const getScoreColor = (score) => {
-    if (score >= 8) return 'text-[#E05A4A]';
-    if (score >= 6) return 'text-[#E8B84A]';
-    if (score >= 4) return 'text-[#948979]';
-    return 'text-[#5CB87A]';
+    if (score >= 8) return 'text-[#ef4444]';
+    if (score >= 6) return 'text-[#f97316]';
+    if (score >= 4) return 'text-[#a855f7]';
+    return 'text-[#10b981]';
   };
 
   const getScoreBg = (score) => {
-    if (score >= 8) return 'bg-[#E05A4A]/10 border-[#E05A4A]/20';
-    if (score >= 6) return 'bg-[#E8B84A]/10 border-[#E8B84A]/20';
-    if (score >= 4) return 'bg-[#948979]/10 border-[#948979]/20';
-    return 'bg-[#5CB87A]/10 border-[#5CB87A]/20';
+    if (score >= 8) return 'bg-[#ef4444]/10 border-[#ef4444]/20';
+    if (score >= 6) return 'bg-[#f97316]/10 border-[#f97316]/20';
+    if (score >= 4) return 'bg-[#a855f7]/10 border-[#a855f7]/20';
+    return 'bg-[#10b981]/10 border-[#10b981]/20';
   };
 
   if (loading) return <div className="flex justify-center py-20"><LoadingSpinner size="lg" /></div>;
@@ -58,17 +58,17 @@ const RiskDetail = () => {
     <div className="space-y-6">
       {/* Back + Header */}
       <div className="opacity-0 animate-fade-in-up">
-        <button onClick={() => navigate('/risks')} className="flex items-center gap-2 text-sm text-[#6B8A9C] hover:text-[#DFD0B8] mb-3 transition-colors">
+        <button onClick={() => navigate('/risks')} className="flex items-center gap-2 text-sm text-slate-200 hover:text-white mb-3 transition-colors">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           <span className="section-title">Back to Scenarios</span>
         </button>
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-[#DFD0B8]">{risk.title}</h1>
+            <h1 className="text-2xl font-bold text-white">{risk.title}</h1>
             <div className="flex flex-wrap items-center gap-3 mt-2">
               <StatusBadge status={risk.status} />
               <span className={`text-sm font-bold ${getScoreColor(risk.riskScore)}`}>Score: {formatRiskScore(risk.riskScore)}</span>
-              <span className="text-xs text-[#6B8A9C]">ID: #{risk.id}</span>
+              <span className="text-xs text-slate-200">ID: #{risk.id}</span>
             </div>
           </div>
           <div className="flex gap-3">
@@ -85,12 +85,12 @@ const RiskDetail = () => {
           <div className={`rounded-xl p-5 border ${getScoreBg(risk.riskScore)} opacity-0 animate-fade-in-up stagger-1`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-2xs text-[#6B8A9C] font-semibold uppercase tracking-wider mb-1">Risk Assessment Score</p>
+                <p className="text-2xs text-slate-300 font-semibold uppercase tracking-wider mb-1">Risk Assessment Score</p>
                 <p className={`text-3xl font-bold ${getScoreColor(risk.riskScore)}`}>{risk.riskScore}/10</p>
               </div>
               <div className="text-right">
-                <p className="text-2xs text-[#6B8A9C] font-semibold uppercase tracking-wider mb-1">Projected Exposure</p>
-                <p className="text-2xl font-bold text-[#DFD0B8]">{formatCost(risk.projectedCost)}</p>
+                <p className="text-2xs text-slate-300 font-semibold uppercase tracking-wider mb-1">Projected Exposure</p>
+                <p className="text-2xl font-bold text-white">{formatCost(risk.projectedCost)}</p>
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@ const RiskDetail = () => {
           {/* Description */}
           <div className="card p-6 opacity-0 animate-fade-in-up stagger-2">
             <h3 className="section-title mb-3">Description</h3>
-            <p className="text-sm text-[#A3B8C2] whitespace-pre-wrap leading-relaxed">{risk.description}</p>
+            <p className="text-sm text-white/90 whitespace-pre-wrap leading-relaxed">{risk.description}</p>
           </div>
 
           {/* Risk Parameters */}
@@ -113,9 +113,9 @@ const RiskDetail = () => {
                 { label: 'Last Updated', value: formatDateTime(risk.updatedAt) },
                 { label: 'Status', value: risk.status?.replace('_', ' ') || 'N/A' },
               ].map((item, i) => (
-                <div key={i} className="bg-[#1B3040] rounded-lg p-3">
-                  <p className="text-2xs text-[#6B8A9C] font-semibold uppercase tracking-wider mb-1">{item.label}</p>
-                  <p className="text-sm font-semibold text-[#DFD0B8]">{item.value}</p>
+                <div key={i} className="bg-[#162d47] rounded-lg p-3">
+                  <p className="text-2xs text-slate-300 font-semibold uppercase tracking-wider mb-1">{item.label}</p>
+                  <p className="text-sm font-semibold text-white">{item.value}</p>
                 </div>
               ))}
             </div>
@@ -125,7 +125,7 @@ const RiskDetail = () => {
           {risk.mitigationPlan && (
             <div className="card p-6 opacity-0 animate-fade-in-up stagger-4">
               <h3 className="section-title mb-3">Mitigation Plan</h3>
-              <p className="text-sm text-[#A3B8C2] whitespace-pre-wrap leading-relaxed">{risk.mitigationPlan}</p>
+              <p className="text-sm text-white/90 whitespace-pre-wrap leading-relaxed">{risk.mitigationPlan}</p>
             </div>
           )}
         </div>

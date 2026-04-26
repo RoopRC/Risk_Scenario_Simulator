@@ -114,8 +114,8 @@ const RiskList = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 opacity-0 animate-fade-in-up">
         <div>
-          <h1 className="text-2xl font-bold text-[#DFD0B8]">Risk Scenarios</h1>
-          <p className="text-sm text-[#6B8A9C] mt-1">{pagination.totalElements} total entries found in repository.</p>
+          <h1 className="text-2xl font-bold text-white">Risk Scenarios</h1>
+          <p className="text-sm text-slate-200 mt-1">{pagination.totalElements} total entries found in repository.</p>
         </div>
         <div className="flex gap-3">
           <button onClick={handleExportCSV} className="btn-outline flex items-center gap-2">
@@ -134,13 +134,13 @@ const RiskList = () => {
         <div className="flex flex-col md:flex-row md:items-center gap-3">
           {/* Search */}
           <div className="relative flex-1">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6B8A9C]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+            <svg className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
             <input
               type="text"
               placeholder="Search by title or category..."
               value={searchText}
               onChange={(e) => { setSearchText(e.target.value); setPagination(p => ({ ...p, page: 0 })); }}
-              className="w-full pl-10 pr-4 py-2.5 bg-[#1B3040] border-0 rounded-lg text-sm text-[#DFD0B8] placeholder-[#6B8A9C] focus:outline-none focus:ring-2 focus:ring-[#948979]/20 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#162d47] border-0 rounded-lg text-sm text-white placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-[#10b981]/20 transition-all"
             />
           </div>
 
@@ -148,7 +148,7 @@ const RiskList = () => {
           <select
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPagination(p => ({ ...p, page: 0 })); }}
-            className="px-3 py-2.5 bg-[#1B3040] border-0 rounded-lg text-sm text-[#A3B8C2] focus:outline-none focus:ring-2 focus:ring-[#948979]/20 transition-all cursor-pointer min-w-[140px]"
+            className="px-3 py-2.5 bg-[#162d47] border-0 rounded-lg text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#10b981]/20 transition-all cursor-pointer min-w-[140px]"
           >
             <option value="">All Status</option>
             {STATUSES.map(s => <option key={s} value={s}>{s.replace('_', ' ')}</option>)}
@@ -158,7 +158,7 @@ const RiskList = () => {
           <select
             value={categoryFilter}
             onChange={(e) => { setCategoryFilter(e.target.value); setPagination(p => ({ ...p, page: 0 })); }}
-            className="px-3 py-2.5 bg-[#1B3040] border-0 rounded-lg text-sm text-[#A3B8C2] focus:outline-none focus:ring-2 focus:ring-[#948979]/20 transition-all cursor-pointer min-w-[150px]"
+            className="px-3 py-2.5 bg-[#162d47] border-0 rounded-lg text-sm text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#10b981]/20 transition-all cursor-pointer min-w-[150px]"
           >
             <option value="">All Categories</option>
             {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
@@ -167,7 +167,7 @@ const RiskList = () => {
           {/* Advanced Filters */}
           <button
             onClick={() => setShowAdvancedFilters(true)}
-            className="px-3 py-2.5 bg-[#948979]/10 hover:bg-[#948979]/20 border border-[#948979]/20 rounded-lg text-sm text-[#948979] font-medium transition-all flex items-center gap-1 whitespace-nowrap"
+            className="px-3 py-2.5 bg-[#10b981]/10 hover:bg-[#10b981]/20 border border-[#10b981]/20 rounded-lg text-sm text-emerald-400 font-medium transition-all flex items-center gap-1 whitespace-nowrap"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="4" y1="6" x2="20" y2="6" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="18" x2="20" y2="18" />
@@ -177,7 +177,7 @@ const RiskList = () => {
 
           {/* Clear */}
           {hasActiveFilters && (
-            <button onClick={clearFilters} className="text-xs font-semibold text-[#6B8A9C] hover:text-[#E05A4A] uppercase tracking-wider whitespace-nowrap transition-colors">
+            <button onClick={clearFilters} className="text-xs font-semibold text-slate-400 hover:text-red-400 uppercase tracking-wider whitespace-nowrap transition-colors">
               Clear All
             </button>
           )}
@@ -198,7 +198,7 @@ const RiskList = () => {
       {/* Pagination */}
       {pagination.totalPages > 1 && (
         <div className="flex items-center justify-between opacity-0 animate-fade-in-up stagger-3">
-          <span className="text-sm text-[#6B8A9C]">
+          <span className="text-sm text-slate-400">
             Showing {pagination.page * pagination.size + 1}–{Math.min((pagination.page + 1) * pagination.size, pagination.totalElements)} of {pagination.totalElements}
           </span>
           <div className="flex gap-2">
@@ -208,7 +208,7 @@ const RiskList = () => {
             </button>
             {[...Array(Math.min(pagination.totalPages, 5))].map((_, i) => (
               <button key={i} onClick={() => handlePageChange(i)}
-                className={`w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold transition-all ${pagination.page === i ? 'bg-gradient-to-r from-[#948979] to-[#7d7466] text-[#222831]' : 'border border-white/10 text-[#6B8A9C] hover:border-white/20 hover:text-[#DFD0B8]'}`}>
+                className={`w-8 h-8 flex items-center justify-center rounded-lg text-xs font-bold transition-all ${pagination.page === i ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-white' : 'border border-white/10 text-slate-300 hover:border-white/20 hover:text-white'}`}>
                 {i + 1}
               </button>
             ))}

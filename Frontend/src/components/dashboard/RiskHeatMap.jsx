@@ -20,12 +20,12 @@ const RiskHeatMap = ({ risks = [] }) => {
   });
 
   const getHeatColor = (count, impact, likelihood) => {
-    if (count === 0) return 'bg-slate-50 border-slate-200';
+    if (count === 0) return 'bg-[#162d47] border-[#1e3a5f]';
     const score = (impact + 1) * (likelihood + 1) * count;
-    if (score >= 20) return 'bg-red-100 border-red-400 hover:bg-red-200';
-    if (score >= 12) return 'bg-orange-100 border-orange-400 hover:bg-orange-200';
-    if (score >= 6) return 'bg-yellow-100 border-yellow-400 hover:bg-yellow-200';
-    return 'bg-green-100 border-green-400 hover:bg-green-200';
+    if (score >= 20) return 'bg-[#ef4444]/20 border-[#ef4444]/50 hover:bg-[#ef4444]/30';
+    if (score >= 12) return 'bg-[#f97316]/20 border-[#f97316]/50 hover:bg-[#f97316]/30';
+    if (score >= 6) return 'bg-[#a855f7]/20 border-[#a855f7]/50 hover:bg-[#a855f7]/30';
+    return 'bg-[#10b981]/20 border-[#10b981]/50 hover:bg-[#10b981]/30';
   };
 
   const impacts = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'];
@@ -33,15 +33,15 @@ const RiskHeatMap = ({ risks = [] }) => {
 
   return (
     <div className="card p-6">
-      <h3 className="text-lg font-semibold text-slate-900 mb-6">Risk Heat Map</h3>
+      <h3 className="text-lg font-semibold text-white mb-6">Risk Heat Map</h3>
       
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr>
-              <th className="text-sm font-semibold text-slate-600 text-center w-24 pb-4">Likelihood</th>
+              <th className="text-sm font-semibold text-slate-300 text-center w-24 pb-4">Likelihood</th>
               {impacts.map(impact => (
-                <th key={impact} className="text-sm font-semibold text-slate-600 text-center pb-4 px-2">
+                <th key={impact} className="text-sm font-semibold text-slate-300 text-center pb-4 px-2">
                   {impact}
                 </th>
               ))}
@@ -50,7 +50,7 @@ const RiskHeatMap = ({ risks = [] }) => {
           <tbody>
             {likelihoods.map((likelihood, likelihoodIdx) => (
               <tr key={likelihood}>
-                <td className="text-sm font-medium text-slate-700 text-center pb-2">
+                <td className="text-sm font-medium text-slate-300 text-center pb-2">
                   {likelihood}
                 </td>
                 {impacts.map((impact, impactIdx) => {
@@ -68,12 +68,12 @@ const RiskHeatMap = ({ risks = [] }) => {
                     >
                       {count > 0 && (
                         <div className="flex flex-col items-center gap-1">
-                          <span className="font-bold text-lg text-slate-900">{count}</span>
-                          <div className="text-xs text-slate-600 max-h-12 overflow-y-auto">
+                          <span className="font-bold text-lg text-white">{count}</span>
+                          <div className="text-xs text-slate-300 max-h-12 overflow-y-auto">
                             {cellRisks.slice(0, 2).map((risk, idx) => (
                               <div key={idx} className="truncate">{risk.title.substring(0, 15)}...</div>
                             ))}
-                            {cellRisks.length > 2 && <div className="text-slate-500">+{cellRisks.length - 2}</div>}
+                            {cellRisks.length > 2 && <div className="text-slate-400">+{cellRisks.length - 2}</div>}
                           </div>
                         </div>
                       )}

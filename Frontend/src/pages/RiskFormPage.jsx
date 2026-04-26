@@ -71,10 +71,10 @@ const RiskFormPage = () => {
   };
 
   const getScoreColor = (score) => {
-    if (score >= 8) return '#E05A4A';
-    if (score >= 6) return '#E8B84A';
-    if (score >= 4) return '#948979';
-    return '#5CB87A';
+    if (score >= 8) return '#ef4444';
+    if (score >= 6) return '#f97316';
+    if (score >= 4) return '#a855f7';
+    return '#10b981';
   };
 
   if (loading) return <div className="flex justify-center py-12"><LoadingSpinner size="lg" /></div>;
@@ -84,11 +84,11 @@ const RiskFormPage = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="opacity-0 animate-fade-in-up">
-        <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-[#6B8A9C] hover:text-[#DFD0B8] mb-2 transition-colors">
+        <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-slate-200 hover:text-white mb-2 transition-colors">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
           <span className="section-title">Scenario Builder</span>
         </button>
-        <h1 className="text-2xl font-bold text-[#DFD0B8]">{isEditing ? 'Edit Scenario' : 'Create New Scenario'}</h1>
+        <h1 className="text-2xl font-bold text-white">{isEditing ? 'Edit Scenario' : 'Create New Scenario'}</h1>
       </div>
 
       {/* Form Content */}
@@ -112,7 +112,7 @@ const RiskFormPage = () => {
                 <div>
                   <label className="label">Projected Cost ($)</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6B8A9C] text-sm">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 text-sm">$</span>
                     <input type="number" name="projectedCost" value={formData.projectedCost} onChange={handleChange} className="input pl-7" />
                   </div>
                 </div>
@@ -137,10 +137,10 @@ const RiskFormPage = () => {
                   onChange={(e) => setFormData(p => ({ ...p, riskScore: parseFloat(e.target.value) }))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
                   style={{
-                    background: `linear-gradient(to right, ${getScoreColor(formData.riskScore)} 0%, ${getScoreColor(formData.riskScore)} ${(formData.riskScore / 10) * 100}%, #1B3040 ${(formData.riskScore / 10) * 100}%, #1B3040 100%)`,
+                    background: `linear-gradient(to right, ${getScoreColor(formData.riskScore)} 0%, ${getScoreColor(formData.riskScore)} ${(formData.riskScore / 10) * 100}%, #162d47 ${(formData.riskScore / 10) * 100}%, #162d47 100%)`,
                   }}
                 />
-                <div className="flex justify-between text-2xs text-[#6B8A9C] mt-1">
+                <div className="flex justify-between text-2xs text-slate-300 mt-1">
                   <span>Low Risk</span><span>Medium</span><span>High Risk</span><span>Critical</span>
                 </div>
               </div>
@@ -151,7 +151,7 @@ const RiskFormPage = () => {
                 <div className="flex gap-2 mt-1">
                   {SEVERITY_LEVELS.map(level => (
                     <button key={level} type="button" onClick={() => setFormData(p => ({ ...p, impact: level }))}
-                      className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.impact === level ? 'bg-gradient-to-r from-[#948979] to-[#7d7466] text-[#222831] shadow-glow-accent' : 'bg-[#1B3040] text-[#6B8A9C] hover:bg-[#1E3545] hover:text-[#A3B8C2]'}`}>
+                      className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.impact === level ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-white' : 'bg-[#162d47] text-slate-400 hover:bg-[#1e3a5f] hover:text-white'}`}>
                       {level}
                     </button>
                   ))}
@@ -164,7 +164,7 @@ const RiskFormPage = () => {
                 <div className="flex gap-2 mt-1">
                   {PROBABILITY_LEVELS.map(level => (
                     <button key={level} type="button" onClick={() => setFormData(p => ({ ...p, likelihood: level }))}
-                      className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.likelihood === level ? 'bg-gradient-to-r from-[#948979] to-[#7d7466] text-[#222831] shadow-glow-accent' : 'bg-[#1B3040] text-[#6B8A9C] hover:bg-[#1E3545] hover:text-[#A3B8C2]'}`}>
+                      className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.likelihood === level ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-white' : 'bg-[#162d47] text-slate-400 hover:bg-[#1e3a5f] hover:text-white'}`}>
                       {level}
                     </button>
                   ))}
@@ -178,7 +178,7 @@ const RiskFormPage = () => {
                   <div className="flex gap-2 mt-1">
                     {STATUS_OPTIONS.map(s => (
                       <button key={s} type="button" onClick={() => setFormData(p => ({ ...p, status: s }))}
-                        className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.status === s ? 'bg-gradient-to-r from-[#948979] to-[#7d7466] text-[#222831] shadow-glow-accent' : 'bg-[#1B3040] text-[#6B8A9C] hover:bg-[#1E3545] hover:text-[#A3B8C2]'}`}>
+                        className={`flex-1 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${formData.status === s ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-white' : 'bg-[#162d47] text-slate-400 hover:bg-[#1e3a5f] hover:text-white'}`}>
                         {s.replace('_', ' ')}
                       </button>
                     ))}
@@ -195,7 +195,7 @@ const RiskFormPage = () => {
 
             {/* Actions */}
             <div className="flex items-center justify-end gap-4 mt-6 opacity-0 animate-fade-in-up stagger-2">
-              <button type="button" onClick={() => navigate(-1)} className="text-sm text-[#6B8A9C] hover:text-[#DFD0B8] font-medium uppercase tracking-wider transition-colors">Discard Changes</button>
+              <button type="button" onClick={() => navigate(-1)} className="text-sm text-slate-200 hover:text-white font-medium uppercase tracking-wider transition-colors">Discard Changes</button>
               <button type="submit" disabled={submitting} className="btn-primary flex items-center gap-2 px-8">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                 {submitting ? 'Saving...' : 'Confirm & Register'}
@@ -208,14 +208,14 @@ const RiskFormPage = () => {
         <div className="lg:col-span-1 opacity-0 animate-fade-in-up stagger-3">
           <div className="card p-5">
             <div className="flex items-center gap-2 mb-4">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#948979" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#948979]">System Guidelines</h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400">System Guidelines</h3>
             </div>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-[#6B8A9C] mt-1.5 flex-shrink-0"></span><p className="text-xs text-[#6B8A9C] leading-relaxed">Define simulations with specific technical scope and verifiable data points.</p></li>
-              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-[#6B8A9C] mt-1.5 flex-shrink-0"></span><p className="text-xs text-[#6B8A9C] leading-relaxed">Cost projections should include both direct operational loss and MTTR estimates.</p></li>
-              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-[#6B8A9C] mt-1.5 flex-shrink-0"></span><p className="text-xs text-[#6B8A9C] leading-relaxed">Risk scores from 7.0+ are flagged as critical and trigger automated alerts.</p></li>
-              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-[#6B8A9C] mt-1.5 flex-shrink-0"></span><p className="text-xs text-[#6B8A9C] leading-relaxed">Mitigation plans should include timeline, responsible team, and success criteria.</p></li>
+              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-slate-400 mt-1.5 flex-shrink-0"></span><p className="text-xs text-slate-400 leading-relaxed">Define simulations with specific technical scope and verifiable data points.</p></li>
+              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-slate-400 mt-1.5 flex-shrink-0"></span><p className="text-xs text-slate-400 leading-relaxed">Cost projections should include both direct operational loss and MTTR estimates.</p></li>
+              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-slate-400 mt-1.5 flex-shrink-0"></span><p className="text-xs text-slate-400 leading-relaxed">Risk scores from 7.0+ are flagged as critical and trigger automated alerts.</p></li>
+              <li className="flex items-start gap-2"><span className="w-1 h-1 rounded-full bg-slate-400 mt-1.5 flex-shrink-0"></span><p className="text-xs text-slate-400 leading-relaxed">Mitigation plans should include timeline, responsible team, and success criteria.</p></li>
             </ul>
           </div>
         </div>

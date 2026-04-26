@@ -77,7 +77,7 @@ const RiskFilters = ({ filters, onFilterChange }) => {
             setLocalSearch('');
             onFilterChange({ search: '', status: null, category: null, minScore: null });
           }}
-          className="text-sm text-gray-500 hover:text-primary"
+          className="text-sm text-slate-200 hover:text-emerald-400"
         >
           Clear Filters
         </button>

@@ -11,17 +11,17 @@ const StatisticsCard = ({
   loading = false
 }) => {
   const colorClasses = {
-    blue: 'bg-blue-50 text-blue-600 border-blue-200',
-    red: 'bg-red-50 text-red-600 border-red-200',
-    green: 'bg-green-50 text-green-600 border-green-200',
-    orange: 'bg-orange-50 text-orange-600 border-orange-200',
-    purple: 'bg-purple-50 text-purple-600 border-purple-200',
+    blue: 'bg-[#06b6d4]/10 text-[#06b6d4] border-[#06b6d4]/20',
+    red: 'bg-[#ef4444]/10 text-[#ef4444] border-[#ef4444]/20',
+    green: 'bg-[#10b981]/10 text-[#10b981] border-[#10b981]/20',
+    orange: 'bg-[#f97316]/10 text-[#f97316] border-[#f97316]/20',
+    purple: 'bg-[#a855f7]/10 text-[#a855f7] border-[#a855f7]/20',
   };
 
   const trendClasses = {
-    positive: 'text-green-600 bg-green-50',
-    negative: 'text-red-600 bg-red-50',
-    neutral: 'text-slate-600 bg-slate-50',
+    positive: 'text-[#10b981] bg-[#10b981]/10',
+    negative: 'text-[#ef4444] bg-[#ef4444]/10',
+    neutral: 'text-slate-400 bg-slate-400/10',
   };
 
   return (
@@ -57,12 +57,12 @@ const StatisticsCard = ({
       </div>
 
       <div className="mb-2">
-        <p className="text-slate-600 text-sm font-medium">{title}</p>
-        <p className="text-2xl font-bold text-slate-900 mt-1">{value}</p>
+        <p className="text-slate-200 text-sm font-medium">{title}</p>
+        <p className="text-2xl font-bold text-white mt-1">{value}</p>
       </div>
 
       {subtitle && (
-        <p className="text-xs text-slate-500">{subtitle}</p>
+        <p className="text-xs text-slate-400">{subtitle}</p>
       )}
     </div>
   );

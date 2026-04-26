@@ -8,7 +8,7 @@ const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#233D4D] flex">
+    <div className="min-h-screen bg-gradient-to-br from-[#050a15] via-[#0a0e1a] to-[#0f1628] flex">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -21,7 +21,7 @@ const Layout = () => {
 
       <div className="flex-1 md:ml-[220px] flex flex-col min-h-screen">
         <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 p-4 md:p-6 overflow-auto">
+        <main className="flex-1 p-4 md:p-6 overflow-auto bg-gradient-to-br from-[#0a0e1a] to-[#050a15]">
           <ErrorBoundary>
             <Outlet />
           </ErrorBoundary>

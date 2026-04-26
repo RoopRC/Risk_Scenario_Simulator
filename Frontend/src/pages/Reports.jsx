@@ -84,8 +84,8 @@ const Reports = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 opacity-0 animate-fade-in-up">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Reports</h1>
-          <p className="text-sm text-gray-500 mt-1">Generate and download reports for compliance, audits, and strategic review.</p>
+          <h1 className="text-2xl font-bold text-white">Reports</h1>
+          <p className="text-sm text-slate-200 mt-1">Generate and download reports for compliance, audits, and strategic review.</p>
         </div>
       </div>
 
@@ -94,7 +94,7 @@ const Reports = () => {
         {reportTypes.map((report, idx) => (
           <div key={idx} className={`card p-6 group opacity-0 animate-fade-in-up stagger-${idx + 1} ${report.isAI ? 'ring-1 ring-accent/20' : ''}`}>
             <div className="flex items-start gap-4">
-              <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${report.isAI ? 'bg-accent/10 text-accent group-hover:bg-accent group-hover:text-white' : 'bg-navy-900/5 text-navy-900 group-hover:bg-navy-900 group-hover:text-white'}`}>
+              <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${report.isAI ? 'bg-[#a855f7]/10 text-[#a855f7] group-hover:bg-[#a855f7] group-hover:text-white' : 'bg-[#10b981]/10 text-[#10b981] group-hover:bg-[#10b981] group-hover:text-white'}`}>
                 {report.icon}
               </div>
               <div className="flex-1">
@@ -122,17 +122,17 @@ const Reports = () => {
         <div className="card p-6 opacity-0 animate-fade-in-up">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className={`w-2 h-2 rounded-full ${streaming ? 'bg-[#948979] animate-pulse' : 'bg-[#6B8F71]'}`}></span>
+              <span className={`w-2 h-2 rounded-full ${streaming ? 'bg-[#a855f7] animate-pulse' : 'bg-[#10b981]'}`}></span>
               <h3 className="section-title">{streaming ? 'Generating Report...' : 'Report Generated'}</h3>
             </div>
             {streaming && (
               <button onClick={stopStream} className="text-xs text-danger font-bold uppercase tracking-wider hover:text-red-600 transition-colors">Stop</button>
             )}
           </div>
-          <div className="bg-[#222831] rounded-xl p-5 max-h-[500px] overflow-y-auto">
-            <pre className="text-sm text-[#DFD0B8] whitespace-pre-wrap font-sans leading-relaxed">
+          <div className="bg-[#050a15] rounded-xl p-5 max-h-[500px] overflow-y-auto">
+            <pre className="text-sm text-[#e2e8f0] whitespace-pre-wrap font-sans leading-relaxed">
               {streamContent}
-              {streaming && <span className="inline-block w-2 h-4 bg-[#948979] animate-pulse ml-0.5"></span>}
+              {streaming && <span className="inline-block w-2 h-4 bg-[#a855f7] animate-pulse ml-0.5"></span>}
             </pre>
           </div>
         </div>

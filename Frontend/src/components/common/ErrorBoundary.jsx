@@ -20,8 +20,8 @@ class ErrorBoundary extends React.Component {
         <div className="min-h-[400px] flex items-center justify-center">
           <div className="text-center p-8">
             <div className="text-6xl mb-4">⚠️</div>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">Something went wrong</h2>
-            <p className="text-gray-600 mb-4">{this.state.error?.message || 'An unexpected error occurred'}</p>
+            <h2 className="text-2xl font-semibold text-white mb-2">Something went wrong</h2>
+            <p className="text-slate-200 mb-4">{this.state.error?.message || 'An unexpected error occurred'}</p>
             <button
               onClick={() => window.location.reload()}
               className="btn-primary"

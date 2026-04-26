@@ -57,8 +57,8 @@ const Dashboard = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 opacity-0 animate-fade-in-up">
         <div>
-          <h1 className="text-2xl font-bold text-[#DFD0B8]">Dashboard</h1>
-          <p className="text-sm text-[#6B8A9C] mt-1">Real-time insights and monitoring for risk scenarios across all sectors.</p>
+          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+          <p className="text-sm text-slate-200 mt-1">Real-time insights and monitoring for risk scenarios across all sectors.</p>
         </div>
         <div className="flex gap-3">
           <button onClick={() => navigate('/reports')} className="btn-outline">Download Report</button>
@@ -80,14 +80,14 @@ const Dashboard = () => {
         <div className="lg:col-span-2 card p-5 opacity-0 animate-fade-in-up stagger-5">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#948979]"></span>
+              <span className="w-2 h-2 rounded-full bg-[#10b981]"></span>
               <h3 className="section-title">Risk Evolution Trend</h3>
             </div>
           </div>
           {trendData.length > 0 ? (
             <TrendLineChart data={trendData} />
           ) : (
-            <div className="flex items-center justify-center h-52 text-[#6B8A9C] text-sm">
+            <div className="flex items-center justify-center h-52 text-slate-400 text-sm">
               <p>No trend data available.</p>
             </div>
           )}
@@ -99,19 +99,19 @@ const Dashboard = () => {
             {stats.statusBreakdown && stats.statusBreakdown.length > 0 ? (
               <StatusPieChart data={stats.statusBreakdown} />
             ) : (
-              <div className="h-32 flex items-center justify-center text-[#6B8A9C] text-sm">No distribution data</div>
+              <div className="h-32 flex items-center justify-center text-slate-400 text-sm">No distribution data</div>
             )}
           </div>
 
-          <div className="bg-gradient-to-br from-[#222831] to-[#393E46] rounded-xl p-5 relative overflow-hidden shadow-lg opacity-0 animate-fade-in-up stagger-6" style={{ border: '1px solid rgba(255,255,255,0.06)' }}>
+          <div className="bg-gradient-to-br from-[#162d47] to-[#1e3a5f] rounded-xl p-5 relative overflow-hidden shadow-lg opacity-0 animate-fade-in-up stagger-6" style={{ border: '1px solid rgba(16, 185, 129, 0.2)' }}>
             <div className="absolute top-3 right-3 opacity-[0.06]">
-              <svg width="52" height="52" viewBox="0 0 24 24" fill="#DFD0B8"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="#ffffff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
             </div>
-            <h3 className="text-sm font-bold uppercase tracking-widest mb-2 text-[#DFD0B8]">Neural Advisor</h3>
-            <p className="text-xs text-[#6B8A9C] leading-relaxed mb-4">
+            <h3 className="text-sm font-bold uppercase tracking-widest mb-2 text-white">Neural Advisor</h3>
+            <p className="text-xs text-slate-200 leading-relaxed mb-4">
               AI analysis suggests {stats.criticalRisks || 0} critical scenarios require immediate attention. Avg risk score: {stats.avgRiskScore || 'N/A'}/10.
             </p>
-            <button onClick={() => navigate('/risks')} className="w-full bg-gradient-to-r from-[#948979] to-[#7d7466] text-[#222831] py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest hover:shadow-glow-accent transition-all active:scale-[0.97]">
+            <button onClick={() => navigate('/risks')} className="w-full bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest hover:shadow-lg transition-all active:scale-[0.97]">
               View All Scenarios
             </button>
           </div>

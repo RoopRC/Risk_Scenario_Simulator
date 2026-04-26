@@ -55,7 +55,7 @@ const Settings = () => {
     <div className="max-w-4xl">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900">Settings</h1>
-        <p className="text-slate-500 mt-2">Manage your preferences and account settings</p>
+        <p className="text-slate-400 mt-2">Manage your preferences and account settings</p>
       </div>
 
       {/* Profile Section */}
@@ -143,7 +143,7 @@ const Settings = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="font-medium text-slate-900">Enable Notifications</p>
-              <p className="text-sm text-slate-500">Receive alerts for critical risks</p>
+              <p className="text-sm text-slate-400">Receive alerts for critical risks</p>
             </div>
             <input
               type="checkbox"
@@ -189,7 +189,7 @@ const Settings = () => {
               onChange={handleChange}
               className="w-full sm:w-96"
             />
-            <p className="text-xs text-slate-500 mt-1">Risks above this score will be highlighted</p>
+            <p className="text-xs text-slate-400 mt-1">Risks above this score will be highlighted</p>
           </div>
         </div>
       </div>

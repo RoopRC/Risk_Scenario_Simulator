@@ -44,10 +44,10 @@ const AdvancedFilters = ({ onFiltersChange, onClose }) => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-slate-900">Advanced Filters</h3>
+        <h3 className="text-lg font-semibold text-white">Advanced Filters</h3>
         <button
           onClick={onClose}
-          className="text-slate-400 hover:text-slate-600"
+          className="text-slate-300 hover:text-slate-400"
         >
           <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
             <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
@@ -147,7 +147,7 @@ const AdvancedFilters = ({ onFiltersChange, onClose }) => {
               onChange={handleChange}
               className="w-full"
             />
-            <span className="text-xs text-slate-500">Min</span>
+            <span className="text-xs text-slate-400">Min</span>
           </div>
           <div className="flex-1">
             <input
@@ -160,7 +160,7 @@ const AdvancedFilters = ({ onFiltersChange, onClose }) => {
               onChange={handleChange}
               className="w-full"
             />
-            <span className="text-xs text-slate-500">Max</span>
+            <span className="text-xs text-slate-400">Max</span>
           </div>
         </div>
       </div>

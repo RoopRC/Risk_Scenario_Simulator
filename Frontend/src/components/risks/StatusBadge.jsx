@@ -4,7 +4,7 @@ const statusConfig = {
   OPEN: { bg: 'bg-amber-50', text: 'text-amber-700', dot: 'bg-amber-400', label: 'Open' },
   IN_PROGRESS: { bg: 'bg-blue-50', text: 'text-blue-700', dot: 'bg-blue-400', label: 'In Progress' },
   MITIGATED: { bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-400', label: 'Mitigated' },
-  CLOSED: { bg: 'bg-gray-50', text: 'text-gray-600', dot: 'bg-gray-400', label: 'Closed' },
+  CLOSED: { bg: 'bg-slate-400/10', text: 'text-slate-400', dot: 'bg-slate-400', label: 'Closed' },
   CRITICAL: { bg: 'bg-rose-50', text: 'text-rose-700', dot: 'bg-rose-400', label: 'Critical' },
 };
 

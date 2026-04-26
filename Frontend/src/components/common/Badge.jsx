@@ -9,13 +9,13 @@ const Badge = ({
   onRemove
 }) => {
   const variantClasses = {
-    default: 'bg-slate-100 text-slate-700 border-slate-200',
-    primary: 'bg-blue-100 text-blue-700 border-blue-200',
-    success: 'bg-green-100 text-green-700 border-green-200',
-    danger: 'bg-red-100 text-red-700 border-red-200',
-    warning: 'bg-yellow-100 text-yellow-700 border-yellow-200',
-    info: 'bg-cyan-100 text-cyan-700 border-cyan-200',
-    premium: 'bg-purple-100 text-purple-700 border-purple-200',
+    default: 'bg-slate-500/20 text-slate-300 border-slate-500/30',
+    primary: 'bg-[#06b6d4]/20 text-[#06b6d4] border-[#06b6d4]/30',
+    success: 'bg-[#10b981]/20 text-[#10b981] border-[#10b981]/30',
+    danger: 'bg-[#ef4444]/20 text-[#ef4444] border-[#ef4444]/30',
+    warning: 'bg-[#f97316]/20 text-[#f97316] border-[#f97316]/30',
+    info: 'bg-[#06b6d4]/20 text-[#06b6d4] border-[#06b6d4]/30',
+    premium: 'bg-[#a855f7]/20 text-[#a855f7] border-[#a855f7]/30',
   };
 
   const sizeClasses = {
