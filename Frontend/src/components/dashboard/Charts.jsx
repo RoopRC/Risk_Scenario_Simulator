@@ -5,7 +5,7 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from 'recharts';
 
-const COLORS = ['#222831', '#393E46', '#948979', '#C44536', '#D4A843', '#6B8F71'];
+const COLORS = ['#10b981', '#06b6d4', '#a855f7', '#ef4444', '#f59e0b', '#ec4899', '#3b82f6', '#14b8a6'];
 
 const chartTooltipStyle = {
   contentStyle: {
@@ -118,8 +118,8 @@ export const RiskTrendLineChart = ({ data }) => {
         <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
         <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
         <Tooltip {...chartTooltipStyle} />
-        <Line type="monotone" dataKey="blue" stroke="#222831" strokeWidth={2} dot={{ r: 4, fill: '#222831' }} name="Score A" />
-        <Line type="monotone" dataKey="red" stroke="#C44536" strokeWidth={2} dot={{ r: 4, fill: '#C44536' }} name="Score B" />
+        <Line type="monotone" dataKey="blue" stroke="#06b6d4" strokeWidth={2} dot={{ r: 4, fill: '#06b6d4' }} name="Score A" />
+        <Line type="monotone" dataKey="red" stroke="#ef4444" strokeWidth={2} dot={{ r: 4, fill: '#ef4444' }} name="Score B" />
       </LineChart>
     </ResponsiveContainer>
   );

@@ -110,9 +110,9 @@ const RiskFormPage = () => {
                   <select name="category" value={formData.category} onChange={handleChange} className="input">{CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}</select>
                 </div>
                 <div>
-                  <label className="label">Projected Cost ($)</label>
+                  <label className="label">Projected Cost (₹)</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 text-sm">$</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300 text-sm">₹</span>
                     <input type="number" name="projectedCost" value={formData.projectedCost} onChange={handleChange} className="input pl-7" />
                   </div>
                 </div>

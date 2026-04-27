@@ -41,7 +41,7 @@ const Analytics = () => {
   if (loading) return <div className="flex justify-center py-20"><LoadingSpinner size="lg" /></div>;
   if (!stats) return <EmptyState title="No analytics data" message="Unable to load analytics" />;
 
-  const formatCurrency = (v) => v >= 1000000 ? `$${(v/1000000).toFixed(1)}M` : `$${(v/1000).toFixed(0)}K`;
+  const formatCurrency = (v) => v >= 10000000 ? `₹${(v/10000000).toFixed(1)}Cr` : v >= 100000 ? `₹${(v/100000).toFixed(1)}L` : `₹${(v/1000).toFixed(0)}K`;
 
   return (
     <div className="space-y-6">
@@ -106,17 +106,26 @@ const Analytics = () => {
         <div className="card p-5 opacity-0 animate-fade-in-up stagger-6">
           <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Strategic Insights</h3>
           <div className="space-y-3">
-            <div className="bg-rose-50 rounded-lg p-3 border border-rose-100">
-              <p className="text-xs font-bold text-rose-600 uppercase tracking-wider mb-1">Cybersecurity Focus</p>
-              <p className="text-xs text-slate-300 leading-relaxed">Critical vulnerabilities detected in infrastructure. Prioritize patching cycles.</p>
+            <div className="bg-gradient-to-r from-[#ef4444]/10 to-[#ef4444]/5 rounded-lg p-3 border border-[#ef4444]/30 hover:border-[#ef4444]/50 transition-all">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-[#ef4444]"></span>
+                <p className="text-xs font-bold text-[#ff6b6b] uppercase tracking-wider">Cybersecurity Focus</p>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed ml-4">Critical vulnerabilities detected in infrastructure. Prioritize patching cycles.</p>
             </div>
-            <div className="bg-emerald-50 rounded-lg p-3 border border-emerald-100">
-              <p className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">Efficiency Gain</p>
-              <p className="text-xs text-slate-300 leading-relaxed">Automated risk scoring reduced assessment time by 40% this quarter.</p>
+            <div className="bg-gradient-to-r from-[#10b981]/10 to-[#10b981]/5 rounded-lg p-3 border border-[#10b981]/30 hover:border-[#10b981]/50 transition-all">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-[#10b981]"></span>
+                <p className="text-xs font-bold text-[#4ade80] uppercase tracking-wider">Efficiency Gain</p>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed ml-4">Automated risk scoring reduced assessment time by 40% this quarter.</p>
             </div>
-            <div className="bg-amber-50 rounded-lg p-3 border border-amber-100">
-              <p className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-1">Compliance Alert</p>
-              <p className="text-xs text-slate-300 leading-relaxed">3 regulatory deadlines approaching in the next 60 days. Review compliance backlog.</p>
+            <div className="bg-gradient-to-r from-[#f59e0b]/10 to-[#f59e0b]/5 rounded-lg p-3 border border-[#f59e0b]/30 hover:border-[#f59e0b]/50 transition-all">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-[#f59e0b]"></span>
+                <p className="text-xs font-bold text-[#fbbf24] uppercase tracking-wider">Compliance Alert</p>
+              </div>
+              <p className="text-xs text-slate-300 leading-relaxed ml-4">3 regulatory deadlines approaching in the next 60 days. Review compliance backlog.</p>
             </div>
           </div>
         </div>
