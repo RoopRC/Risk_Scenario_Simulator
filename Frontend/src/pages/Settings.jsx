@@ -68,13 +68,13 @@ const Settings = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-xs font-semibold uppercase tracking-widest text-emerald-300 mb-2 block">Name</label>
-              <div className="px-4 py-2 bg-[#162d47]/50 rounded-lg border border-[#10b981]/20 text-white font-medium">
+              <div className="px-4 py-2 bg-gradient-to-r from-[#10b981]/10 to-[#06b6d4]/10 rounded-lg border border-[#10b981]/20 text-white font-medium">
                 {user?.name || 'User'}
               </div>
             </div>
             <div>
               <label className="text-xs font-semibold uppercase tracking-widest text-emerald-300 mb-2 block">Role</label>
-              <div className="px-4 py-2 bg-[#162d47]/50 rounded-lg border border-[#10b981]/20">
+              <div className="px-4 py-2 bg-gradient-to-r from-[#10b981]/10 to-[#06b6d4]/10 rounded-lg border border-[#10b981]/20">
                 <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#06b6d4]/20 to-[#10b981]/20 text-cyan-300 rounded-full text-sm font-medium border border-[#06b6d4]/30">
                   {user?.role}
                 </span>
@@ -83,7 +83,7 @@ const Settings = () => {
           </div>
           <div>
             <label className="text-xs font-semibold uppercase tracking-widest text-emerald-300 mb-2 block">Email</label>
-            <div className="px-4 py-2 bg-[#162d47]/50 rounded-lg border border-[#10b981]/20 text-white">
+            <div className="px-4 py-2 bg-gradient-to-r from-[#10b981]/10 to-[#06b6d4]/10 rounded-lg border border-[#10b981]/20 text-white">
               {user?.email}
             </div>
           </div>
@@ -103,7 +103,7 @@ const Settings = () => {
               name="theme"
               value={settings.theme}
               onChange={handleChange}
-              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/10 to-[#06b6d4]/10 border-2 border-[#a855f7]/30 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
+              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 border-2 border-[#a855f7]/40 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
             >
               <option value="light" className="bg-slate-800 text-white">Light Mode</option>
               <option value="dark" className="bg-slate-800 text-white">Dark Mode (Coming Soon)</option>
@@ -117,7 +117,7 @@ const Settings = () => {
               name="itemsPerPage"
               value={settings.itemsPerPage}
               onChange={handleChange}
-              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/10 to-[#06b6d4]/10 border-2 border-[#a855f7]/30 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
+              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 border-2 border-[#a855f7]/40 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
             >
               <option value={5} className="bg-slate-800 text-white">5 items</option>
               <option value={10} className="bg-slate-800 text-white">10 items</option>
@@ -132,7 +132,7 @@ const Settings = () => {
               name="language"
               value={settings.language}
               onChange={handleChange}
-              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/10 to-[#06b6d4]/10 border-2 border-[#a855f7]/30 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
+              className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#a855f7]/20 to-[#06b6d4]/20 border-2 border-[#a855f7]/40 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#a855f7]/50 focus:border-[#a855f7]/50 hover:border-[#a855f7]/50 transition-all cursor-pointer"
             >
               <option value="en" className="bg-slate-800 text-white">English</option>
               <option value="es" className="bg-slate-800 text-white">Spanish</option>
@@ -170,7 +170,7 @@ const Settings = () => {
                 name="emailDigest"
                 value={settings.emailDigest}
                 onChange={handleChange}
-                className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#06b6d4]/10 to-[#10b981]/10 border-2 border-[#06b6d4]/30 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#06b6d4]/50 focus:border-[#06b6d4]/50 hover:border-[#06b6d4]/50 transition-all cursor-pointer"
+                className="w-full sm:w-64 px-4 py-3 bg-gradient-to-r from-[#06b6d4]/20 to-[#10b981]/20 border-2 border-[#06b6d4]/40 rounded-lg text-white font-medium focus:outline-none focus:ring-2 focus:ring-[#06b6d4]/50 focus:border-[#06b6d4]/50 hover:border-[#06b6d4]/50 transition-all cursor-pointer"
               >
                 <option value="immediate" className="bg-slate-800 text-white">Immediate</option>
                 <option value="daily" className="bg-slate-800 text-white">Daily Summary</option>
