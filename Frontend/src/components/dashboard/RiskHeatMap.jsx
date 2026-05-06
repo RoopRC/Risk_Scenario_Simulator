@@ -88,20 +88,20 @@ const RiskHeatMap = ({ risks = [] }) => {
 
       <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-green-100 border border-green-400 rounded"></div>
-          <span className="text-slate-600">Low Risk</span>
+          <div className="w-4 h-4 rounded" style={{ background: 'rgba(16, 185, 129, 0.5)', border: '1px solid #10b981' }}></div>
+          <span className="text-slate-300">Low Risk</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-yellow-100 border border-yellow-400 rounded"></div>
-          <span className="text-slate-600">Medium</span>
+          <div className="w-4 h-4 rounded" style={{ background: 'rgba(168, 85, 247, 0.5)', border: '1px solid #a855f7' }}></div>
+          <span className="text-slate-300">Medium</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-orange-100 border border-orange-400 rounded"></div>
-          <span className="text-slate-600">High Risk</span>
+          <div className="w-4 h-4 rounded" style={{ background: 'rgba(249, 115, 22, 0.5)', border: '1px solid #f97316' }}></div>
+          <span className="text-slate-300">High Risk</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 bg-red-100 border border-red-400 rounded"></div>
-          <span className="text-slate-600">Critical</span>
+          <div className="w-4 h-4 rounded" style={{ background: 'rgba(239, 68, 68, 0.5)', border: '1px solid #ef4444' }}></div>
+          <span className="text-slate-300">Critical</span>
         </div>
       </div>
     </div>

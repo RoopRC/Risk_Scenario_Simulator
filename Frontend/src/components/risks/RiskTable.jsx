@@ -7,17 +7,17 @@ const RiskTable = ({ risks, onSort, sortField, sortDirection, onDelete }) => {
   const navigate = useNavigate();
 
   const getScoreColor = (score) => {
-    if (score >= 8) return 'text-rose-600 font-bold';
-    if (score >= 6) return 'text-amber-600 font-semibold';
-    if (score >= 4) return 'text-blue-600 font-semibold';
-    return 'text-emerald-600 font-semibold';
+    if (score >= 8) return 'text-rose-400 font-bold';
+    if (score >= 6) return 'text-amber-400 font-semibold';
+    if (score >= 4) return 'text-blue-400 font-semibold';
+    return 'text-emerald-400 font-semibold';
   };
 
   const getScoreBg = (score) => {
-    if (score >= 8) return 'bg-rose-50';
-    if (score >= 6) return 'bg-amber-50';
-    if (score >= 4) return 'bg-blue-50';
-    return 'bg-emerald-50';
+    if (score >= 8) return 'bg-rose-500/15';
+    if (score >= 6) return 'bg-amber-500/15';
+    if (score >= 4) return 'bg-blue-500/15';
+    return 'bg-emerald-500/15';
   };
 
   const handleSort = (field) => {
@@ -43,7 +43,7 @@ const RiskTable = ({ risks, onSort, sortField, sortDirection, onDelete }) => {
     <div className="overflow-x-auto">
       <table className="min-w-full">
         <thead>
-          <tr className="border-b border-gray-100">
+          <tr className="border-b border-white/10">
             {columns.map(col => (
               <th key={col.key} onClick={() => handleSort(col.key)}
                 className="px-5 py-3 text-left text-2xs font-bold uppercase tracking-wider text-slate-300 cursor-pointer hover:text-white transition-colors select-none">
@@ -56,12 +56,12 @@ const RiskTable = ({ risks, onSort, sortField, sortDirection, onDelete }) => {
         <tbody>
           {risks.map((risk, idx) => (
             <tr key={risk.id}
-              className="border-b border-gray-50 hover:bg-accent/[0.02] transition-colors group"
+              className="border-b border-white/5 hover:bg-white/[0.03] transition-colors group"
               style={{ animationDelay: `${idx * 30}ms` }}>
               <td className="px-5 py-3.5 text-sm text-slate-200 font-mono">#{risk.id}</td>
               <td className="px-5 py-3.5">
                 <button onClick={() => navigate(`/risks/${risk.id}`)}
-                  className="text-sm font-medium text-navy-900 hover:text-accent transition-colors text-left">
+                  className="text-sm font-medium text-slate-200 hover:text-emerald-400 transition-colors text-left">
                   {risk.title}
                 </button>
               </td>

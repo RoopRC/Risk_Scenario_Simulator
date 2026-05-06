@@ -24,17 +24,38 @@ export const CategoryBarChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} barSize={32}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#d1c3ab" vertical={false} />
-        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" vertical={false} />
+        <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
         <Tooltip {...chartTooltipStyle} />
-        <Bar dataKey="count" fill="#222831" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="count" fill="#06b6d4" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );
 };
 
 export const StatusPieChart = ({ data }) => {
+  const renderLabel = ({ name, percent, cx, cy, midAngle, outerRadius, index }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = outerRadius + 25;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#e2e8f0"
+        fontSize={12}
+        fontWeight={500}
+        textAnchor={x > cx ? 'start' : 'end'}
+        dominantBaseline="central"
+      >
+        {name}: {(percent * 100).toFixed(0)}%
+      </text>
+    );
+  };
+
   return (
     <ResponsiveContainer width="100%" height={250}>
       <PieChart>
@@ -43,13 +64,13 @@ export const StatusPieChart = ({ data }) => {
           cx="50%"
           cy="50%"
           labelLine={false}
-          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-          outerRadius={80}
-          innerRadius={40}
+          label={renderLabel}
+          outerRadius={75}
+          innerRadius={38}
           fill="#948979"
           dataKey="value"
           strokeWidth={2}
-          stroke="#EDE4D3"
+          stroke="rgba(255,255,255,0.1)"
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -67,15 +88,15 @@ export const TrendLineChart = ({ data }) => {
       <AreaChart data={data}>
         <defs>
           <linearGradient id="trendGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#948979" stopOpacity={0.2} />
-            <stop offset="95%" stopColor="#948979" stopOpacity={0} />
+            <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
+            <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#d1c3ab" vertical={false} />
-        <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" vertical={false} />
+        <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
         <Tooltip {...chartTooltipStyle} />
-        <Area type="monotone" dataKey="risks" stroke="#222831" strokeWidth={2} fill="url(#trendGradient)" />
+        <Area type="monotone" dataKey="risks" stroke="#10b981" strokeWidth={2.5} fill="url(#trendGradient)" dot={{ r: 3, fill: '#10b981', stroke: '#10b981' }} activeDot={{ r: 5, fill: '#34d399', stroke: '#fff', strokeWidth: 2 }} />
       </AreaChart>
     </ResponsiveContainer>
   );
@@ -138,11 +159,17 @@ export const MonthlyBarChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={280}>
       <BarChart data={defaultData} barSize={28}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#d1c3ab" vertical={false} />
-        <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#948979' }} />
-        <Tooltip {...chartTooltipStyle} />
-        <Bar dataKey="value" fill="#393E46" radius={[4, 4, 0, 0]} />
+        <defs>
+          <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#06b6d4" stopOpacity={1} />
+            <stop offset="100%" stopColor="#10b981" stopOpacity={0.8} />
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.08)" vertical={false} />
+        <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8' }} />
+        <Tooltip {...chartTooltipStyle} cursor={{ fill: 'rgba(255,255,255,0.06)' }} />
+        <Bar dataKey="value" fill="url(#barGradient)" radius={[4, 4, 0, 0]} activeBar={{ fill: '#0d9488', opacity: 0.9 }} />
       </BarChart>
     </ResponsiveContainer>
   );
