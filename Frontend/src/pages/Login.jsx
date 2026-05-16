@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import LoadingSpinner from '../components/common/LoadingSpinner';
@@ -7,8 +7,16 @@ const Login = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  // Navigate to dashboard when authentication succeeds
+  useEffect(() => {
+    if (isAuthenticated) {
+      console.log('✅ Authentication successful, navigating to dashboard...');
+      navigate('/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,12 +24,11 @@ const Login = () => {
     setLoading(true);
     try {
       const success = await login(credentials);
-      setLoading(false);
-      if (success) {
-        navigate('/dashboard');
-      } else {
+      if (!success) {
+        setLoading(false);
         setError('Invalid credentials. Please try again.');
       }
+      // Don't set loading to false here - let the useEffect above handle navigation
     } catch (err) {
       setLoading(false);
       setError(err.message || 'An error occurred during login. Please try again.');

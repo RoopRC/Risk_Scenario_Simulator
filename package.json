@@ -5,9 +5,10 @@
   "main": "mock-backend.js",
   "type": "module",
   "scripts": {
-    "server": "node mock-backend.js",
+    "server": "mvn clean install && mvn exec:java",
+    "server:build": "mvn clean package",
     "client": "cd Frontend && npm run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "npm run server:build && concurrently \"java -jar target/backend.jar\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,8 +16,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^16.3.1",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3"
+    "jsonwebtoken": "^9.0.3",
+    "mysql2": "^3.6.5"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

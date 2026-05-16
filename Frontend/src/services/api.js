@@ -98,6 +98,11 @@ export const askAIQuery = async (riskId, question) => {
   return response.data;
 };
 
+export const getAIInsights = async (riskId) => {
+  const response = await api.post(`/api/risks/${riskId}/ai/insights`);
+  return response.data;
+};
+
 export const getStreamingReport = (params) => {
   const token = localStorage.getItem('token');
   const url = `${API_BASE_URL}/api/reports/stream?${new URLSearchParams(params)}`;

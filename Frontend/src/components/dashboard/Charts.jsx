@@ -5,7 +5,7 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar
 } from 'recharts';
 
-const COLORS = ['#10b981', '#06b6d4', '#a855f7', '#ef4444', '#f59e0b', '#ec4899', '#3b82f6', '#14b8a6'];
+const COLORS = ['#a855f7', '#3b82f6', '#fbbf24', '#10b981', '#06b6d4', '#ef4444', '#ec4899', '#14b8a6'];
 
 const chartTooltipStyle = {
   contentStyle: {

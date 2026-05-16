@@ -76,7 +76,7 @@ const RiskTable = ({ risks, onSort, sortField, sortDirection, onDelete }) => {
               <td className="px-5 py-3.5"><StatusBadge status={risk.status} /></td>
               <td className="px-5 py-3.5 text-sm text-slate-200">{formatDate(risk.createdAt)}</td>
               <td className="px-5 py-3.5">
-                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex items-center gap-1 opacity-100 transition-opacity">
                   <button onClick={() => navigate(`/risks/${risk.id}`)} className="p-1.5 text-slate-300 hover:text-accent rounded-md hover:bg-accent/10 transition-all" title="View">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                   </button>

@@ -19,15 +19,23 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      verifyToken(token)
-        .then(userData => {
-          setUser(userData);
-        })
-        .catch(() => {
-          localStorage.removeItem('token');
-          setToken(null);
-        })
-        .finally(() => setLoading(false));
+      // Only verify token on app startup, not after login
+      // The user data is already set during login
+      if (user) {
+        setLoading(false);
+      } else {
+        verifyToken(token)
+          .then(userData => {
+            setUser(userData);
+          })
+          .catch((err) => {
+            console.error('Token verification failed:', err);
+            localStorage.removeItem('token');
+            setToken(null);
+            setUser(null);
+          })
+          .finally(() => setLoading(false));
+      }
     } else {
       setLoading(false);
     }
@@ -42,6 +50,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', token);
       setToken(token);
       setUser(userData);
+      setLoading(false);
       toast.success('Login successful!');
       return true;
     } catch (error) {
